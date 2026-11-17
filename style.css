@@ -1,0 +1,738 @@
+/*
+  The ugliest site in the world, on purpose.
+  Visual direction: 1998 personal home page + 2003 WordArt.
+  Every block alternates light/dark tone (folder rule), text keeps readable contrast.
+*/
+
+:root {
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* Type scale */
+  --text-body: 1.125rem;
+  --text-big: 1.5rem;
+  --text-title: clamp(2.5rem, 4.5vw, 4.5rem);
+  --text-wordart: clamp(3rem, 8vw, 9rem);
+
+  /* Fonts: the worst trio a system can offer, chosen deliberately */
+  --font-body: "Comic Sans MS", "Comic Sans", "Comic Neue", sans-serif;
+  --font-title: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  --font-loud: "Arial Black", "Arial Bold", sans-serif;
+
+  /* Block backgrounds: light, dark, light, dark... (pattern pairs share the same tone) */
+  --bg-strip: #990000;
+  --bg-top-a: #39ff14;
+  --bg-top-b: #ccff00;
+  --bg-about-a: #000080;
+  --bg-about-b: #0a0a5c;
+  --bg-colors-a: #ffff00;
+  --bg-colors-b: #ffd800;
+  --bg-fonts-a: #800000;
+  --bg-fonts-b: #9a0a0a;
+  --bg-works-a: #00ffff;
+  --bg-works-b: #8cfffb;
+  --bg-wall-a: #4b0082;
+  --bg-wall-b: #5e00a3;
+  --bg-footer-a: #ff99ff;
+  --bg-footer-b: #ffc2ff;
+
+  /* Text and accents */
+  --black: #000000;
+  --white: #ffffff;
+  --yellow: #ffff00;
+  --cyan: #00ffff;
+  --lime: #39ff14;
+  --magenta: #ff00ff;
+  --pink: #ff99ff;
+  --blue: #0000ff;
+  --red: #cc0000;
+  --red-dark: #a00000;
+  --orange: #ff6600;
+  --link: #0000ee;
+  --link-visited: #551a8b;
+  --win-gray: #c0c0c0;
+  --win-title: #008080;
+
+  /* Windows 98 bevels and the hard shadow */
+  --bevel-out: 4px outset var(--win-gray);
+  --bevel-in: 4px inset var(--win-gray);
+  --shadow-hard: 6px 6px 0 var(--black);
+
+  /* Motion */
+  --fast: 150ms;
+  --normal: 300ms;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+
+  scrollbar-color: var(--magenta) var(--lime);
+  accent-color: var(--magenta);
+  caret-color: var(--magenta);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--black);
+  color: var(--black);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.5;
+}
+
+::selection {
+  background: var(--lime);
+  color: var(--bg-about-a);
+}
+
+/* Black/white/black ring: visible on every one of the clashing backgrounds */
+:focus-visible {
+  outline: 3px solid var(--white);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 9px var(--black);
+}
+
+a {
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  a:hover {
+    text-decoration-style: wavy;
+  }
+}
+
+table,
+.contador__digitos {
+  font-variant-numeric: tabular-nums;
+}
+
+p {
+  margin: 0;
+}
+
+.pular {
+  position: absolute;
+  left: var(--space-4);
+  top: -100px;
+  z-index: 10;
+  padding: var(--space-2) var(--space-4);
+  background: var(--yellow);
+  color: var(--black);
+  border: var(--bevel-out);
+  font-family: var(--font-loud);
+}
+
+.pular:focus {
+  top: var(--space-4);
+}
+
+/* Every block fills the whole width; text measure is limited inside */
+.bloco {
+  padding: var(--space-8) clamp(var(--space-5), 4vw, var(--space-8));
+}
+
+.titulo {
+  margin: 0 0 var(--space-5);
+  font-family: var(--font-title);
+  font-size: var(--text-title);
+  font-weight: 400;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+/* ---------- Scrolling strip (dark) ---------- */
+
+.faixa {
+  overflow: hidden;
+  background: var(--bg-strip);
+  color: var(--yellow);
+  border-bottom: 6px ridge var(--yellow);
+  font-family: var(--font-loud);
+  font-size: 1.25rem;
+  white-space: nowrap;
+}
+
+.faixa__trilho {
+  display: flex;
+  width: max-content;
+  animation: rolar 40s linear infinite;
+}
+
+.faixa__texto {
+  padding: var(--space-3) var(--space-8) var(--space-3) 0;
+}
+
+@keyframes rolar {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------- Top (light) ---------- */
+
+.topo {
+  background-color: var(--bg-top-a);
+  background-image: repeating-conic-gradient(var(--bg-top-a) 0 25%, var(--bg-top-b) 0 50%);
+  background-size: 44px 44px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.wordart {
+  display: inline-block;
+  margin: var(--space-5) 0 var(--space-7);
+  font-family: var(--font-title);
+  font-size: var(--text-wordart);
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+  text-wrap: balance;
+  /* Gradient text on purpose: this is WordArt, the whole point of the request */
+  background: linear-gradient(180deg, #ff0000 0%, #ff8800 22%, #ffff00 40%, #00cc00 60%, #0000ff 80%, #8b00ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 3px var(--black);
+  filter: drop-shadow(6px 6px 0 var(--magenta)) drop-shadow(5px 5px 0 var(--blue));
+  transform: rotate(-4deg) skewX(-8deg);
+  animation: balanco 2.4s ease-in-out infinite alternate;
+}
+
+@keyframes balanco {
+  to {
+    transform: rotate(-1.5deg) skewX(-8deg) scale(1.03);
+  }
+}
+
+.topo__sub {
+  max-width: 48ch;
+  margin: 0 auto var(--space-6);
+  font-size: var(--text-big);
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+.contador {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--white);
+  border: 4px double var(--magenta);
+  box-shadow: var(--shadow-hard);
+  transform: rotate(1.5deg);
+}
+
+.contador__rotulo {
+  font-family: var(--font-loud);
+}
+
+.contador__digitos {
+  display: inline-flex;
+  gap: 3px;
+}
+
+.contador__digito {
+  display: inline-block;
+  min-width: 1.4em;
+  padding: var(--space-1) 0;
+  background: var(--black);
+  color: var(--lime);
+  font-family: var(--font-loud);
+  font-size: var(--text-big);
+  line-height: 1.2;
+  text-align: center;
+  border: 2px inset var(--win-gray);
+}
+
+.contador__nota {
+  margin-top: var(--space-5);
+  font-size: 1rem;
+}
+
+/* ---------- About (dark) ---------- */
+
+.sobre {
+  display: grid;
+  grid-template-columns: minmax(200px, 260px) 1fr minmax(260px, 340px);
+  align-items: start;
+  gap: var(--space-7);
+  background-color: var(--bg-about-a);
+  background-image: radial-gradient(var(--bg-about-b) 30%, transparent 32%);
+  background-size: 18px 18px;
+  color: var(--yellow);
+}
+
+.sobre__menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--win-gray);
+  border: var(--bevel-out);
+  transform: rotate(-2deg);
+}
+
+.sobre__menu-titulo {
+  color: var(--black);
+  font-family: var(--font-loud);
+  text-align: center;
+  text-decoration: underline;
+}
+
+.botao98 {
+  display: block;
+  padding: var(--space-2) var(--space-3);
+  background: var(--win-gray);
+  color: var(--black);
+  border: var(--bevel-out);
+  font-family: var(--font-loud);
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: transform var(--fast) var(--ease-out), background-color var(--fast) ease;
+}
+
+.botao98:active {
+  border: var(--bevel-in);
+  transform: translate(2px, 2px);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .botao98:hover {
+    background: var(--magenta);
+    text-decoration: underline wavy;
+  }
+}
+
+.sobre__texto {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-4);
+  text-align: center;
+}
+
+.sobre__texto p {
+  max-width: 60ch;
+}
+
+.titulo--sobre {
+  color: var(--cyan);
+  text-shadow: 4px 4px 0 var(--magenta);
+  text-decoration: underline wavy var(--lime) 3px;
+  text-underline-offset: 0.18em;
+}
+
+.janela98 {
+  background: var(--win-gray);
+  color: var(--black);
+  border: var(--bevel-out);
+  box-shadow: var(--shadow-hard);
+  transform: rotate(2.5deg);
+}
+
+.janela98__barra {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-1) var(--space-2);
+  background: var(--win-title);
+  color: var(--white);
+  font-family: var(--font-loud);
+  font-size: 1rem;
+}
+
+.janela98__lista {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  padding: var(--space-4) var(--space-4) var(--space-4) var(--space-7);
+  list-style: square;
+}
+
+.janela98__lista li::marker {
+  color: var(--red);
+}
+
+.pisca {
+  color: var(--red-dark);
+  font-family: var(--font-loud);
+  animation: piscar 1s steps(1, end) infinite;
+}
+
+@keyframes piscar {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ---------- Colors (light) ---------- */
+
+.cores {
+  background-color: var(--bg-colors-a);
+  background-image: radial-gradient(var(--bg-colors-b) 35%, transparent 37%);
+  background-size: 34px 34px;
+  text-align: right;
+}
+
+/* Rotated titles are inline-block so they tilt around their own text,
+   not around a full-width box (which pushed the ends into the next line). */
+.titulo--cores,
+.titulo--mural {
+  display: inline-block;
+}
+
+.titulo--cores {
+  color: var(--blue);
+  text-shadow: 5px 5px 0 var(--magenta);
+  transform: rotate(2deg);
+}
+
+.cores__intro {
+  margin-bottom: var(--space-6);
+  font-size: var(--text-big);
+}
+
+.tabela98 {
+  margin: 0 auto;
+  border-collapse: separate;
+  border-spacing: 4px;
+  background: var(--win-gray);
+  border: var(--bevel-out);
+  box-shadow: var(--shadow-hard);
+  text-align: left;
+}
+
+.tabela98 caption {
+  margin-bottom: var(--space-3);
+  font-family: var(--font-loud);
+  text-align: left;
+}
+
+.tabela98 th,
+.tabela98 td {
+  padding: var(--space-2) var(--space-4);
+  border: 2px inset var(--win-gray);
+}
+
+.tabela98 th {
+  background: var(--magenta);
+  color: var(--black);
+  font-family: var(--font-loud);
+}
+
+.tabela98 tbody tr:nth-child(odd) td {
+  background: var(--white);
+}
+
+.amostra {
+  display: block;
+  width: 64px;
+  height: 32px;
+  background: var(--amostra);
+  border: 3px solid var(--black);
+}
+
+/* ---------- Fonts (dark) ---------- */
+
+.fontes {
+  background-color: var(--bg-fonts-a);
+  background-image: repeating-linear-gradient(-45deg, var(--bg-fonts-a) 0 14px, var(--bg-fonts-b) 14px 28px);
+  color: var(--white);
+}
+
+.titulo--fontes {
+  color: var(--yellow);
+  text-align: center;
+  text-shadow: 4px 4px 0 var(--blue);
+}
+
+.fontes__lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-6);
+  margin: 0;
+}
+
+.fontes__item {
+  padding: var(--space-5);
+  border: 5px dashed var(--yellow);
+}
+
+.fontes__item:nth-child(even) {
+  border-style: dotted;
+  border-color: var(--cyan);
+  transform: rotate(1.5deg);
+}
+
+.fontes__item:nth-child(odd) {
+  transform: rotate(-1deg);
+}
+
+.fontes__item dt {
+  margin-bottom: var(--space-2);
+  color: var(--cyan);
+  font-family: var(--font-loud);
+  text-decoration: underline;
+}
+
+.fontes__item dd {
+  margin: 0;
+  font-size: var(--text-big);
+}
+
+.fontes__item--comic dd {
+  font-family: var(--font-body);
+}
+
+.fontes__item--impact dd {
+  font-family: var(--font-title);
+  font-size: 2rem;
+}
+
+.fontes__item--black dd {
+  font-family: var(--font-loud);
+}
+
+.wingdings {
+  font-family: Wingdings, var(--font-body);
+  font-size: 2rem;
+  color: var(--yellow);
+}
+
+.fontes__traducao {
+  display: block;
+  font-size: 1rem;
+}
+
+/* ---------- Works (light) ---------- */
+
+.obra {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-5);
+  background-color: var(--bg-works-a);
+  background-image: repeating-conic-gradient(var(--bg-works-a) 0 25%, var(--bg-works-b) 0 50%);
+  background-size: 60px 60px;
+  text-align: center;
+}
+
+.titulo--obra {
+  margin: 0;
+  color: var(--red);
+  -webkit-text-stroke: 2px var(--black);
+  font-size: var(--text-wordart);
+  letter-spacing: 0.04em;
+  transform: skewX(12deg);
+}
+
+.obra__desenho {
+  width: min(520px, 100%);
+  height: auto;
+}
+
+.obra__luz {
+  animation: piscar 0.8s steps(1, end) infinite;
+}
+
+.obra__texto {
+  max-width: 44ch;
+  padding: var(--space-4) var(--space-5);
+  background: var(--yellow);
+  border: 5px solid var(--black);
+  box-shadow: var(--shadow-hard);
+  font-family: var(--font-loud);
+  font-size: var(--text-big);
+  transform: rotate(-1.5deg);
+}
+
+.pisca-lento {
+  animation: piscar 1.6s steps(1, end) infinite;
+}
+
+/* ---------- Badge wall (dark) ---------- */
+
+.mural {
+  background-color: var(--bg-wall-a);
+  background-image: repeating-linear-gradient(90deg, var(--bg-wall-a) 0 22px, var(--bg-wall-b) 22px 44px);
+  color: var(--lime);
+  text-align: left;
+}
+
+.titulo--mural {
+  color: var(--lime);
+  text-shadow: 4px 4px 0 var(--magenta);
+  transform: rotate(-2deg);
+  transform-origin: left center;
+}
+
+.selos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin: 0 0 var(--space-7);
+  padding: 0;
+  list-style: none;
+}
+
+.selo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 220px;
+  min-height: 72px;
+  padding: var(--space-2) var(--space-3);
+  border: 3px solid var(--black);
+  outline: 3px solid var(--white);
+  font-family: var(--font-loud);
+  font-size: 1rem;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.selo--bloco {
+  background: var(--white);
+  color: var(--blue);
+}
+
+.selo--ie {
+  background: var(--blue);
+  color: var(--yellow);
+  transform: rotate(-3deg);
+}
+
+.selo--gosto {
+  background: var(--orange);
+  color: var(--black);
+  transform: rotate(2deg);
+}
+
+.selo--mao {
+  background: var(--black);
+  color: var(--lime);
+}
+
+.selo--livro {
+  background: var(--magenta);
+  color: var(--black);
+  transform: rotate(-1.5deg);
+}
+
+.anel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+  font-family: var(--font-loud);
+}
+
+.anel a {
+  padding: var(--space-2) var(--space-3);
+  background: var(--yellow);
+  color: var(--link);
+  border: var(--bevel-out);
+}
+
+.anel a:active {
+  border: var(--bevel-in);
+}
+
+.anel__nome {
+  padding: var(--space-2) var(--space-3);
+  border: 4px double var(--lime);
+}
+
+.anel__nota {
+  margin-top: var(--space-4);
+}
+
+/* ---------- Footer (light) ---------- */
+
+.rodape {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-2);
+  background-color: var(--bg-footer-a);
+  background-image: radial-gradient(var(--bg-footer-b) 30%, transparent 32%);
+  background-size: 22px 22px;
+  border-top: 8px ridge var(--magenta);
+  text-align: center;
+}
+
+.rodape a {
+  color: var(--link);
+}
+
+.rodape a:visited {
+  color: var(--link-visited);
+}
+
+/* ---------- Narrower screens (portrait monitor and below) ---------- */
+
+@media (max-width: 1200px) {
+  .sobre {
+    grid-template-columns: minmax(200px, 240px) 1fr;
+  }
+
+  .janela98 {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 720px) {
+  .sobre {
+    grid-template-columns: 1fr;
+  }
+
+  .tabela98 {
+    font-size: 1rem;
+  }
+}
+
+/* ---------- Reduced motion: keep it ugly, just stop moving ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .faixa {
+    white-space: normal;
+  }
+
+  .faixa__trilho {
+    animation: none;
+    width: auto;
+  }
+
+  .faixa__texto[aria-hidden="true"] {
+    display: none;
+  }
+
+  .wordart,
+  .pisca,
+  .pisca-lento,
+  .obra__luz {
+    animation: none;
+  }
+}

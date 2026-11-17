@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>O site mais feio do mundo</title>
+  <meta name="description" content="Página oficial do site mais feio do mundo. Em construção desde 1998.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="pular" href="#sobre">Pular para o conteúdo</a>
+
+  <div class="faixa" role="marquee" aria-label="Aviso rolante: bem-vindo ao site mais feio do mundo">
+    <div class="faixa__trilho">
+      <p class="faixa__texto">BEM-VINDO AO SITE MAIS FEIO DO MUNDO!!! SUA VISITA É MUITO IMPORTANTE PARA NÓS!!! NÃO REPARE A BAGUNÇA!!! MELHOR VISUALIZADO EM 800 × 600!!! BEM-VINDO AO SITE MAIS FEIO DO MUNDO!!! SUA VISITA É MUITO IMPORTANTE PARA NÓS!!! NÃO REPARE A BAGUNÇA!!! MELHOR VISUALIZADO EM 800 × 600!!!</p>
+      <p class="faixa__texto" aria-hidden="true">BEM-VINDO AO SITE MAIS FEIO DO MUNDO!!! SUA VISITA É MUITO IMPORTANTE PARA NÓS!!! NÃO REPARE A BAGUNÇA!!! MELHOR VISUALIZADO EM 800 × 600!!! BEM-VINDO AO SITE MAIS FEIO DO MUNDO!!! SUA VISITA É MUITO IMPORTANTE PARA NÓS!!! NÃO REPARE A BAGUNÇA!!! MELHOR VISUALIZADO EM 800 × 600!!!</p>
+    </div>
+  </div>
+
+  <header class="bloco topo" id="topo">
+    <h1 class="wordart">O site mais feio do mundo</h1>
+    <p class="topo__sub">Página oficial. Em construção desde 1998. Atualizada pela última vez: nunca.</p>
+    <div class="contador">
+      <span class="contador__rotulo">Você é o visitante nº</span>
+      <span class="contador__digitos" id="contador" aria-live="polite">000001</span>
+      <span class="contador__rotulo">deste navegador</span>
+    </div>
+    <p class="contador__nota" id="contador-nota">(o contador só conta as suas visitas, porque ninguém mais vem aqui)</p>
+  </header>
+
+  <main>
+    <section class="bloco sobre" id="sobre" aria-labelledby="sobre-titulo">
+      <nav class="sobre__menu" aria-label="Seções da página">
+        <p class="sobre__menu-titulo">MENU</p>
+        <a class="botao98" href="#cores">Minhas cores</a>
+        <a class="botao98" href="#fontes">Minhas fontes</a>
+        <a class="botao98" href="#obra">A obra</a>
+        <a class="botao98" href="#mural">Mural de selos</a>
+      </nav>
+
+      <div class="sobre__texto">
+        <h2 class="titulo titulo--sobre" id="sobre-titulo">Sobre esta página</h2>
+        <p>Olá, internauta! Seja bem-vindo à minha home page. Aqui você vai encontrar tudo o que existe de pior no design: cores que brigam, fontes que ninguém pediu e texto piscando sem motivo nenhum.</p>
+        <p>Esta página foi feita com muito carinho e nenhum critério. Todas as regras de design foram estudadas com atenção e depois ignoradas de propósito, uma por uma.</p>
+        <p>Melhor visualizada em 800 × 600, com 256 cores e o volume no máximo. Não tem som, mas deixa no máximo mesmo assim.</p>
+      </div>
+
+      <aside class="janela98" aria-labelledby="avisos-titulo">
+        <div class="janela98__barra">
+          <span id="avisos-titulo">Avisos.txt (somente leitura)</span>
+        </div>
+        <ul class="janela98__lista">
+          <li><span class="pisca">NOVO!</span> Agora com mais amarelo.</li>
+          <li><span class="pisca">NOVO!</span> Removemos o bom gosto.</li>
+          <li><span class="pisca">NOVO!</span> O botão de voltar do navegador continua funcionando.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="bloco cores" id="cores" aria-labelledby="cores-titulo">
+      <h2 class="titulo titulo--cores" id="cores-titulo">Minhas cores favoritas</h2>
+      <p class="cores__intro">Escolhi todas. Ficar com uma só seria falta de personalidade.</p>
+      <table class="tabela98">
+        <caption>Cores, códigos e com o que cada uma combina</caption>
+        <thead>
+          <tr><th scope="col">Amostra</th><th scope="col">Nome</th><th scope="col">Código</th><th scope="col">Combina com</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="amostra" style="--amostra: #39ff14"></span></td><td>Verde marca-texto</td><td>#39FF14</td><td>nada</td></tr>
+          <tr><td><span class="amostra" style="--amostra: #ff00ff"></span></td><td>Magenta de oferta</td><td>#FF00FF</td><td>dor de cabeça</td></tr>
+          <tr><td><span class="amostra" style="--amostra: #ffff00"></span></td><td>Amarelo cartolina</td><td>#FFFF00</td><td>este fundo, infelizmente</td></tr>
+          <tr><td><span class="amostra" style="--amostra: #ff6600"></span></td><td>Laranja cone</td><td>#FF6600</td><td>obra parada</td></tr>
+          <tr><td><span class="amostra" style="--amostra: #000080"></span></td><td>Azul tela de erro</td><td>#000080</td><td>reiniciar o computador</td></tr>
+          <tr><td><span class="amostra" style="--amostra: #8b4513"></span></td><td>Marrom sala de espera</td><td>#8B4513</td><td>revista de 2004</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="bloco fontes" id="fontes" aria-labelledby="fontes-titulo">
+      <h2 class="titulo titulo--fontes" id="fontes-titulo">Fontes que eu uso</h2>
+      <dl class="fontes__lista">
+        <div class="fontes__item fontes__item--comic">
+          <dt>Comic Sans MS</dt>
+          <dd>Para assuntos sérios.</dd>
+        </div>
+        <div class="fontes__item fontes__item--impact">
+          <dt>Impact</dt>
+          <dd>PARA ASSUNTOS AINDA MAIS SÉRIOS.</dd>
+        </div>
+        <div class="fontes__item fontes__item--black">
+          <dt>Arial Black</dt>
+          <dd>Para quando o Impact não for suficiente.</dd>
+        </div>
+        <div class="fontes__item fontes__item--wing">
+          <dt>Wingdings</dt>
+          <dd><span class="wingdings" aria-hidden="true">Obrigado pela visita</span> <span class="fontes__traducao">(está escrito "Obrigado pela visita". Confia.)</span></dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="bloco obra" id="obra" aria-labelledby="obra-titulo">
+      <h2 class="titulo titulo--obra pisca-lento" id="obra-titulo">EM CONSTRUÇÃO</h2>
+      <svg class="obra__desenho" viewBox="0 0 420 220" role="img" aria-labelledby="obra-svg-titulo">
+        <title id="obra-svg-titulo">Cavalete de obra listrado entre dois cones, com uma luz piscando em cima</title>
+        <defs>
+          <pattern id="listras" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <rect width="14" height="28" fill="#ff6600"/>
+            <rect x="14" width="14" height="28" fill="#ffffff"/>
+          </pattern>
+        </defs>
+        <rect x="128" y="96" width="12" height="118" fill="#333333"/>
+        <rect x="280" y="96" width="12" height="118" fill="#333333"/>
+        <rect x="100" y="70" width="220" height="56" fill="url(#listras)" stroke="#000000" stroke-width="5"/>
+        <rect x="200" y="50" width="20" height="20" fill="#333333"/>
+        <circle class="obra__luz" cx="210" cy="40" r="16" fill="#ffcc00" stroke="#000000" stroke-width="4"/>
+        <g stroke="#000000" stroke-width="4" stroke-linejoin="round">
+          <polygon points="45,212 70,110 95,212" fill="#ff6600"/>
+          <polygon points="57,163 83,163 89,187 51,187" fill="#ffffff"/>
+          <rect x="25" y="208" width="90" height="10" fill="#ff6600"/>
+          <polygon points="325,212 350,110 375,212" fill="#ff6600"/>
+          <polygon points="337,163 363,163 369,187 331,187" fill="#ffffff"/>
+          <rect x="305" y="208" width="90" height="10" fill="#ff6600"/>
+        </g>
+      </svg>
+      <p class="obra__texto">Esta seção está em construção. Ela vai continuar em construção. A obra é o conteúdo.</p>
+    </section>
+
+    <section class="bloco mural" id="mural" aria-labelledby="mural-titulo">
+      <h2 class="titulo titulo--mural" id="mural-titulo">Mural de selos</h2>
+      <ul class="selos">
+        <li class="selo selo--bloco">FEITO NO BLOCO DE NOTAS</li>
+        <li class="selo selo--ie">MELHOR NO INTERNET EXPLORER 4</li>
+        <li class="selo selo--gosto">100% SEM BOM GOSTO</li>
+        <li class="selo selo--mao">HTML DIGITADO À MÃO</li>
+        <li class="selo selo--livro">ASSINE MEU LIVRO DE VISITAS (NÃO TEM)</li>
+      </ul>
+      <nav class="anel" aria-label="Anel dos sites feios">
+        <a href="#topo">« site anterior</a>
+        <span class="anel__nome">ANEL DOS SITES FEIOS</span>
+        <a href="#topo">próximo site »</a>
+      </nav>
+      <p class="anel__nota">O anel só tem um site. Os dois botões trazem você de volta para cá.</p>
+    </section>
+  </main>
+
+  <footer class="bloco rodape" id="rodape">
+    <p>© 1998 a 2026, O site mais feio do mundo. Nenhum direito reservado: ninguém quis.</p>
+    <p>Webmaster: ninguém assume. Versão 1.0.0.</p>
+    <p><a href="#topo">Voltar para o topo (a parte mais bonita, por eliminação)</a></p>
+  </footer>
+</body>
+</html>
